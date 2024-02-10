@@ -36,14 +36,22 @@ class MyApp extends ConsumerWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const ScoreText(),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 50),
+              padding: const EdgeInsets.only(right: 20),
               child: const Text('Just 👀 and 👌🏼')
                   .animate()
                   .scale(duration: 3.seconds)
                   .shake(duration: 3.seconds, delay: 3.seconds, hz: 6),
+            ),
+            IconButton(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              onPressed: () {
+                ref.read(targetControllerProvider.notifier).clear();
+              },
+              icon: const Icon(Icons.refresh),
             ),
           ],
         ),

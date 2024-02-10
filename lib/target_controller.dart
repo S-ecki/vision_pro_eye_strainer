@@ -58,6 +58,11 @@ class TargetController extends _$TargetController {
     state = state.where((t) => t.id != id).toList();
     ref.read(scoreControllerProvider.notifier).increment();
   }
+
+  void clear() {
+    state = [];
+    ref.read(scoreControllerProvider.notifier).clear();
+  }
 }
 
 @riverpod
@@ -69,6 +74,10 @@ class ScoreController extends _$ScoreController {
 
   void increment() {
     state++;
+  }
+
+  void clear() {
+    state = 0;
   }
 }
 
