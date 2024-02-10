@@ -9,10 +9,12 @@ part 'target_controller.g.dart';
 
 @riverpod
 class TargetController extends _$TargetController {
+  late final Timer _timer;
+
   @override
   List<Target> build() {
-    final t = Timer.periodic(const Duration(seconds: 1), (i) => add());
-    ref.onDispose(t.cancel);
+    _timer = Timer.periodic(const Duration(seconds: 1), (i) => add());
+    ref.onDispose(_timer.cancel);
 
     return [
       Target(const Offset(0, 0)),
@@ -32,6 +34,15 @@ class TargetController extends _$TargetController {
   void kill(int id) {
     state = state.where((t) => t.id != id).toList();
     ref.read(scoreControllerProvider.notifier).increment();
+  }
+
+  void startOrStop() {
+    if (_timer.isActive) {
+      _timer.cancel();
+    } else {
+      _timer = Timer.periodic(const Duration(seconds: 1), (i) => add());
+    }
+    _timer.cancel();
   }
 }
 

@@ -37,19 +37,19 @@ class TargetCircle extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ClipOval(
+    return ClipPath(
       child: Container(
         width: diameter,
         height: diameter,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: color,
         ),
         child: GestureDetector(
           onTap: () {
             print('Container clicked with id $id');
             ref.read(targetControllerProvider.notifier).kill(id);
           },
+          child: Image.asset('assets/head.png'),
         ),
       ),
     );

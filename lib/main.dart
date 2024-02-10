@@ -3,6 +3,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vision_pro_eye_strainer/target_controller.dart';
 import 'package:vision_pro_eye_strainer/target_view.dart';
 
+// TODO: 3 second countdown
+// TODO: background
+// TODO: animation of targets
+// TODO: different colors
+// TODO: levels
+// TODO: sound
 Size? initialWindowsSize;
 
 void main() {
@@ -37,6 +43,12 @@ class MyApp extends ConsumerWidget {
                 ref.read(targetControllerProvider.notifier).add();
               },
               icon: const Icon(Icons.add),
+            ),
+            IconButton(
+              onPressed: () {
+                ref.read(targetControllerProvider.notifier).startOrStop();
+              },
+              icon: const Icon(Icons.play_arrow),
             ),
           ],
         ),
