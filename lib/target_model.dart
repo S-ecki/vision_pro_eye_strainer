@@ -12,7 +12,7 @@ class Target with _$Target {
   factory Target(Offset offset) => Target._internal(
         offset: offset,
         id: _nextId++,
-        diameter: Random().nextInt(40) + 15,
+        diameter: Random().nextInt(40) + 25,
       );
   const Target._();
 

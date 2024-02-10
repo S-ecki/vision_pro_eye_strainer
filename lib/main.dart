@@ -52,7 +52,15 @@ class MyApp extends ConsumerWidget {
             ),
           ],
         ),
-        body: const ClickerField(),
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/moorhuhn-bg.jpeg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: const ClickerField(),
+        ),
       ),
     );
   }
