@@ -3,6 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vision_pro_eye_strainer/target_controller.dart';
 import 'package:vision_pro_eye_strainer/target_view.dart';
 
+Size? initialWindowsSize;
+
 void main() {
   runApp(
     const ProviderScope(
@@ -16,7 +18,11 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // TODO refactor
+    initialWindowsSize = MediaQuery.of(context).size;
+
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -25,6 +31,14 @@ class MyApp extends ConsumerWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const ScoreText(),
+          actions: [
+            IconButton(
+              onPressed: () {
+                ref.read(targetControllerProvider.notifier).add();
+              },
+              icon: const Icon(Icons.add),
+            ),
+          ],
         ),
         body: const ClickerField(),
       ),

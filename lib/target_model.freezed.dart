@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Target {
   Offset get offset => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
+  double get diameter => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TargetCopyWith<Target> get copyWith => throw _privateConstructorUsedError;
@@ -28,7 +29,7 @@ abstract class $TargetCopyWith<$Res> {
   factory $TargetCopyWith(Target value, $Res Function(Target) then) =
       _$TargetCopyWithImpl<$Res, Target>;
   @useResult
-  $Res call({Offset offset, int id});
+  $Res call({Offset offset, int id, double diameter});
 }
 
 /// @nodoc
@@ -46,6 +47,7 @@ class _$TargetCopyWithImpl<$Res, $Val extends Target>
   $Res call({
     Object? offset = null,
     Object? id = null,
+    Object? diameter = null,
   }) {
     return _then(_value.copyWith(
       offset: null == offset
@@ -56,6 +58,10 @@ class _$TargetCopyWithImpl<$Res, $Val extends Target>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      diameter: null == diameter
+          ? _value.diameter
+          : diameter // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -67,7 +73,7 @@ abstract class _$$TargetImplCopyWith<$Res> implements $TargetCopyWith<$Res> {
       __$$TargetImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Offset offset, int id});
+  $Res call({Offset offset, int id, double diameter});
 }
 
 /// @nodoc
@@ -83,6 +89,7 @@ class __$$TargetImplCopyWithImpl<$Res>
   $Res call({
     Object? offset = null,
     Object? id = null,
+    Object? diameter = null,
   }) {
     return _then(_$TargetImpl(
       offset: null == offset
@@ -93,6 +100,10 @@ class __$$TargetImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      diameter: null == diameter
+          ? _value.diameter
+          : diameter // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -100,16 +111,20 @@ class __$$TargetImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TargetImpl extends _Target {
-  const _$TargetImpl({required this.offset, required this.id}) : super._();
+  const _$TargetImpl(
+      {required this.offset, required this.id, required this.diameter})
+      : super._();
 
   @override
   final Offset offset;
   @override
   final int id;
+  @override
+  final double diameter;
 
   @override
   String toString() {
-    return 'Target._internal(offset: $offset, id: $id)';
+    return 'Target._internal(offset: $offset, id: $id, diameter: $diameter)';
   }
 
   @override
@@ -118,11 +133,13 @@ class _$TargetImpl extends _Target {
         (other.runtimeType == runtimeType &&
             other is _$TargetImpl &&
             (identical(other.offset, offset) || other.offset == offset) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.diameter, diameter) ||
+                other.diameter == diameter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, offset, id);
+  int get hashCode => Object.hash(runtimeType, offset, id, diameter);
 
   @JsonKey(ignore: true)
   @override
@@ -132,14 +149,18 @@ class _$TargetImpl extends _Target {
 }
 
 abstract class _Target extends Target {
-  const factory _Target({required final Offset offset, required final int id}) =
-      _$TargetImpl;
+  const factory _Target(
+      {required final Offset offset,
+      required final int id,
+      required final double diameter}) = _$TargetImpl;
   const _Target._() : super._();
 
   @override
   Offset get offset;
   @override
   int get id;
+  @override
+  double get diameter;
   @override
   @JsonKey(ignore: true)
   _$$TargetImplCopyWith<_$TargetImpl> get copyWith =>

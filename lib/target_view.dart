@@ -15,7 +15,7 @@ class ClickerField extends ConsumerWidget {
           (t) => Positioned(
             left: t.left,
             top: t.top,
-            child: TargetCircle(t.id),
+            child: TargetCircle(t.id, diameter: t.diameter),
           ),
         ),
       ],

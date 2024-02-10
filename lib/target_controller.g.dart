@@ -6,7 +6,7 @@ part of 'target_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$targetControllerHash() => r'09cefa346e82380e830e9e032f2b1b7b1ad154a6';
+String _$targetControllerHash() => r'441cb42924e451f9aa9bd2381895fa57d383fbf3';
 
 /// See also [TargetController].
 @ProviderFor(TargetController)
@@ -38,5 +38,19 @@ final scoreControllerProvider =
 );
 
 typedef _$ScoreController = AutoDisposeNotifier<int>;
+String _$viewportHash() => r'd0b32344afc739925b0b3a88cbec30ad30d8f786';
+
+/// See also [Viewport].
+@ProviderFor(Viewport)
+final viewportProvider = AutoDisposeNotifierProvider<Viewport, Size>.internal(
+  Viewport.new,
+  name: r'viewportProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$viewportHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$Viewport = AutoDisposeNotifier<Size>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
