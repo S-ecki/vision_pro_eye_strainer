@@ -34,8 +34,10 @@ class TargetController extends _$TargetController {
         _ => const Duration(milliseconds: 250),
       };
       _timer.cancel();
-      await Future.delayed(const Duration(milliseconds: 1500));
-      _timer = Timer.periodic(delay, (i) => add());
+      if (next != -1) {
+        await Future.delayed(const Duration(milliseconds: 1500));
+        _timer = Timer.periodic(delay, (i) => add());
+      }
     });
     ref.onDispose(_timer.cancel);
 
@@ -90,7 +92,8 @@ int level(LevelRef ref) {
     < 25 => 3,
     < 50 => 4,
     < 69 => 5,
-    _ => 9000
+    < 80 => 9000,
+    _ => -1,
   };
 }
 
@@ -103,6 +106,7 @@ double size(SizeRef ref) {
     3 => 70.0,
     4 => 55.0,
     5 => 45.0,
-    _ => 30.0
+    9000 => 30.0,
+    _ => 0
   };
 }

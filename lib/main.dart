@@ -69,8 +69,11 @@ class ScoreText extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final score = ref.watch(scoreControllerProvider);
     final level = ref.watch(levelProvider);
+
     return Text(
-      'Score: ${score > 70 ? "∞" : score}      Level: ${level == 9000 ? 'VISION BRO' : level}',
+      level == -1
+          ? 'Congratulations! You are a Vision Bro! 🥽'
+          : 'Score: $score     Level: $level',
     );
   }
 }
@@ -111,6 +114,7 @@ class _ConfetterState extends ConsumerState<Confetter> {
           alignment: Alignment.topCenter,
           child: ConfettiWidget(
             confettiController: _controller,
+            shouldLoop: ref.watch(levelProvider) == -1,
             colors: const [
               Colors.yellow,
               Colors.orange,
