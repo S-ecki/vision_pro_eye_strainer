@@ -1,5 +1,6 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vision_pro_eye_strainer/audio_controller.dart';
 import 'package:vision_pro_eye_strainer/target_controller.dart';
@@ -36,11 +37,20 @@ class MyApp extends ConsumerWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const ScoreText(),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: const Text('Just 👀 and 👌🏼')
+                  .animate()
+                  .scale(duration: 3.seconds)
+                  .shake(duration: 3.seconds, delay: 3.seconds, hz: 6),
+            ),
+          ],
         ),
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              opacity: 0.5,
+              opacity: 0.4,
               image: AssetImage('assets/bg.jpg'),
               fit: BoxFit.fill,
             ),
@@ -59,7 +69,9 @@ class ScoreText extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final score = ref.watch(scoreControllerProvider);
     final level = ref.watch(levelProvider);
-    return Text('Score: $score   Level: $level');
+    return Text(
+      'Score: ${score > 70 ? "∞" : score}      Level: ${level == 9000 ? 'VISION BRO' : level}',
+    );
   }
 }
 
@@ -91,9 +103,6 @@ class _ConfetterState extends ConsumerState<Confetter> {
     ref.listen(levelProvider, (prev, next) {
       if (prev != next) {
         _controller.play();
-
-        // final snackBar = SnackBar(content: Text('Leveled up to $next!'));
-        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     });
     return Stack(

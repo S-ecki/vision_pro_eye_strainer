@@ -12,22 +12,29 @@ part 'target_controller.g.dart';
 class TargetController extends _$TargetController {
   late Timer _timer;
 
+  static const _initialDuration = Duration(seconds: 1, milliseconds: 800);
+
   @override
   List<Target> build() {
     _timer = Timer.periodic(
-      const Duration(seconds: 1, milliseconds: 200),
-      (i) => add(),
+      _initialDuration,
+      (i) async {
+        await Future.delayed(const Duration(milliseconds: 5000));
+        add();
+      },
     );
-    ref.listen(levelProvider, (previous, next) {
+    ref.listen(levelProvider, (previous, next) async {
+      state = [];
       final delay = switch (next) {
-        1 => const Duration(seconds: 1, milliseconds: 200),
-        2 => const Duration(milliseconds: 850),
-        3 => const Duration(milliseconds: 700),
-        4 => const Duration(milliseconds: 500),
-        5 => const Duration(milliseconds: 300),
-        _ => const Duration(milliseconds: 150),
+        1 => _initialDuration,
+        2 => const Duration(seconds: 1, milliseconds: 100),
+        3 => const Duration(milliseconds: 800),
+        4 => const Duration(milliseconds: 600),
+        5 => const Duration(milliseconds: 400),
+        _ => const Duration(milliseconds: 250),
       };
       _timer.cancel();
+      await Future.delayed(const Duration(milliseconds: 1500));
       _timer = Timer.periodic(delay, (i) => add());
     });
     ref.onDispose(_timer.cancel);
@@ -38,9 +45,9 @@ class TargetController extends _$TargetController {
   void add() {
     final size = ref.read(sizeProvider);
     final offset = ref.read(randomOffsetProvider);
-    final newestTen = state.reversed.take(10).toList();
+
     state = [
-      ...newestTen,
+      ...state,
       Target(offset, diameter: size),
     ];
   }
@@ -82,7 +89,7 @@ int level(LevelRef ref) {
     < 12 => 2,
     < 25 => 3,
     < 50 => 4,
-    < 70 => 5,
+    < 69 => 5,
     _ => 9000
   };
 }
@@ -95,7 +102,7 @@ double size(SizeRef ref) {
     2 => 85.0,
     3 => 70.0,
     4 => 55.0,
-    5 => 40.0,
-    _ => 25.0
+    5 => 45.0,
+    _ => 30.0
   };
 }
