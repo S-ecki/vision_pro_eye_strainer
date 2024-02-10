@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:vision_pro_eye_strainer/audio_controller.dart';
+import 'package:vision_pro_eye_strainer/main.dart';
 import 'package:vision_pro_eye_strainer/target_controller.dart';
 
 class ClickerField extends ConsumerWidget {
@@ -11,6 +13,7 @@ class ClickerField extends ConsumerWidget {
 
     return Stack(
       children: [
+        const Confetter(),
         ...targets.map(
           (t) => Positioned(
             left: t.left,
@@ -46,7 +49,7 @@ class TargetCircle extends ConsumerWidget {
         ),
         child: GestureDetector(
           onTap: () {
-            print('Container clicked with id $id');
+            ChickenSoundShort().play();
             ref.read(targetControllerProvider.notifier).kill(id);
           },
           child: Image.asset('assets/head.png'),

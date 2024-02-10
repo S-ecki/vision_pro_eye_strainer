@@ -9,10 +9,10 @@ var _nextId = 0;
 
 @freezed
 class Target with _$Target {
-  factory Target(Offset offset) => Target._internal(
+  factory Target(Offset offset, {double? diameter}) => Target._internal(
         offset: offset,
         id: _nextId++,
-        diameter: Random().nextInt(40) + 25,
+        diameter: diameter ?? Random().nextInt(40) + 45,
       );
   const Target._();
 
