@@ -1,26 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'target_controller.dart';
+part of 'controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$randomOffsetHash() => r'872dabffa577a1cfd0789613e4bbdff6d2e24172';
-
-/// See also [randomOffset].
-@ProviderFor(randomOffset)
-final randomOffsetProvider = AutoDisposeProvider<Offset>.internal(
-  randomOffset,
-  name: r'randomOffsetProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$randomOffsetHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef RandomOffsetRef = AutoDisposeProviderRef<Offset>;
-String _$levelHash() => r'180393a3affd965dba13876653f660ce7fa857ba';
+String _$levelHash() => r'97078ad9aba9d98fdef844f2a25c04c31de544b9';
 
 /// See also [level].
 @ProviderFor(level)
@@ -34,7 +20,7 @@ final levelProvider = AutoDisposeProvider<int>.internal(
 );
 
 typedef LevelRef = AutoDisposeProviderRef<int>;
-String _$sizeHash() => r'e2e317d89d6eac3992f856ade8069176b067f323';
+String _$sizeHash() => r'f9fe257d3bb7af1b298ac5441a9eebd0364f37ed';
 
 /// See also [size].
 @ProviderFor(size)
@@ -48,7 +34,7 @@ final sizeProvider = AutoDisposeProvider<double>.internal(
 );
 
 typedef SizeRef = AutoDisposeProviderRef<double>;
-String _$targetControllerHash() => r'd3cb1c9227e287cf4af43226f20f2bbd18a1a84c';
+String _$targetControllerHash() => r'774e1f49972bae9868ef4f136031403ab052c96a';
 
 /// See also [TargetController].
 @ProviderFor(TargetController)
@@ -64,7 +50,7 @@ final targetControllerProvider =
 );
 
 typedef _$TargetController = AutoDisposeNotifier<List<Target>>;
-String _$scoreControllerHash() => r'770bff8914b939fc634ec1daa910511e797a212d';
+String _$scoreControllerHash() => r'02c27bfe516ba4400b6064e01e24ae1d1bb8d1d4';
 
 /// See also [ScoreController].
 @ProviderFor(ScoreController)

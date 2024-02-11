@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'target_model.freezed.dart';
+part 'model.freezed.dart';
 
 var _nextId = 0;
 
