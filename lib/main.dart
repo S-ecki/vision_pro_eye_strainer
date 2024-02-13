@@ -59,7 +59,7 @@ class VisionApp extends ConsumerWidget {
               fit: BoxFit.fill,
             ),
           ),
-          child: const ClickerField(), //const ClickerField(),
+          child: const ClickerField(),
         ),
       ),
     );
