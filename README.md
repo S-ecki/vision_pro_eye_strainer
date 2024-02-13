@@ -2,7 +2,7 @@
 
 This application was developed during the first Vision Pro Hackathon in Vienna.
 It's a homage to the classic point-and-click game "Moorhuhn" and was developed using Flutter targeting the Vision Pro.
-The game also won me the 1st place in the hackathon, which was a nice surprise. 😎
+The game also won me 1st place in the hackathon, which was a nice surprise. 😎
 
 ## Goals
 - Fool around with the **Vision Pro** 🥽
@@ -33,10 +33,10 @@ To create a more engaging experience, I decided to add assets from "Moorhuhn", s
 
 This ended up being enough for some giggles from testers and a good time developing it. I also created an exaggerated description for the hackathon presentations: 
 
-> #####Vision Pro feat. Moorhuhn: the eye (s)trainer
->In a new era of virtual interactions, where everything depends on the precision of your eyesight, it is about time you invest some time to train them!
->The revolutionary ‚eye (s)trainer’ combines an old classic point-and-click with cutting-edge spatial computing and an immersive surround sound.
->Start training today and become a certified Vision Bro!
+> ##### Vision Pro feat. Moorhuhn: the eye (s)trainer
+> In a new era of virtual interactions, where everything depends on the precision of your eyesight, it is about time you invest some time to train them!
+The revolutionary ‚eye (s)trainer’ combines an old classic point-and-click with cutting-edge spatial computing and an immersive surround sound.
+Start training today and become a certified Vision Bro!
 
 #### Setup Note
 
@@ -44,9 +44,13 @@ The Vision Pro **cannot** be set as a target device within VSCode at the moment 
  At least the setup itself is quite easy, following [this article]( https://simonauer.medium.com/how-to-get-started-with-flutter-and-visionos-apple-vision-pro-4335c3243248).
 For a somewhat smoother experience, I developed most of the application with MacOS and only ran it from time to time on the Vision Pro to get a feeling for the UX.
 
+
 ## Conclusion
 - Flutter runs everywhere, where pixels are painted! 💙
 - The Vision Pro is an interesting device, but not as different to other VR headsets as I expected.
 - Some events that would create a more immersive experience are not exposed (yet?).
-- Eyes being the cursor and pinches being clicks opens new possibilities for UX design.\
-- Moorhuhn is still a fun game 🐔
+- Eyes being the cursor and pinches being clicks opens new possibilities for UX design.
+- Moorhuhn is still a fun game. 🐔
+
+
+<img src="https://github.com/S-ecki/vision_pro_eye_strainer/assets/75510543/31d74b39-a64f-416b-9199-08df6ff9783c" height=350>
